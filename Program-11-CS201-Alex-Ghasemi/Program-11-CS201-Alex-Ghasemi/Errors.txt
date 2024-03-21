@@ -1,0 +1,23 @@
+ERROR: M,Hidden Figures,9,Drama,126,2016,Jaraji P Henson,Octavia Spencer,Janelle Monae
+invalid stoi argument
+ERROR: B,Fahrenheit 451,Ray Bradbury,Sci-Fi,256,1953,8
+invalid stoi argument
+ERROR: M,So I Married an Axe Murderer,Thomas Schlamme,15,Comedy,93,1993,Mike Meyers,Nancy Travis
+invalid rating value
+ERROR: S,Baba Yetu,Christopher Tin,10,Choir,203,2025,0
+invalid year value
+ERROR: S,Blinding Lights,the Weeknd,10,9,INVALID,2020,1
+invalid stoi argument
+The command : T is invalid.
+
+Unable to process command.The rating of : 15 is invalid
+Unable to process command.The rating of : -3 is invalid
+
+
+
+
+
+The command : K is invalid.
+
+The command : T is invalid.
+

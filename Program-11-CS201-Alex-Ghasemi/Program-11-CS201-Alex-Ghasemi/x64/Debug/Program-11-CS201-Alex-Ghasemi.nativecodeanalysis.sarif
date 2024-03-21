@@ -1,0 +1,43 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.39.33522.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/alexg/source/repos/program-11-cs201-alex-ghasemi/program-11-cs201-alex-ghasemi/program-11-cs201-alex-ghasemi.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "32a5221f33fb321bc021111abc92bbac30ac1b6d9df6a1fc1e83e50d0ef25162"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/alexg/source/repos/program-11-cs201-alex-ghasemi/program-11-cs201-alex-ghasemi/media.h"
+          },
+          "hashes": {
+            "sha-256": "b77ccee52efe17445edc1f32430974e204bf683f936cd417c4568b2b9f831e01"
+          }
+        }
+      ]
+    }
+  ]
+}
