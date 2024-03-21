@@ -1,21 +1,22 @@
 #include "Media.h"
 
-
+//set default values
 Media::Media() : type('\0'), rating(0), length(0), yearReleased(0) {}
-
+//set values
 Media::Media(char type, string title, string keyName, int rating, string genre, int length, int yearReleased) : type(type), title(title), keyName(keyName), rating(rating), genre(genre), length(length), yearReleased(yearReleased) {
 
 }
 
-
+//read the file and load into vector
 int readMediaList(istream& i, ostream& outErr, vector<Media>& m) {
 	vector<string> allLines;
 	string line, temp;
-
+	//read all lines and load intoa  vector
 	while (getline(i, line)) {
 		allLines.push_back(line);
 	}
 	for (int x = 0; x < allLines.size(); x++) {
+		//go thrugh all the lines  and load
 		try {
 			Media tempM;
 			stringstream linestream(allLines[x]);
@@ -133,12 +134,12 @@ int readMediaList(istream& i, ostream& outErr, vector<Media>& m) {
 	m.pop_back();
 	return 0;
 }
-
+//print all the media or sorted media
 void printAllMedia(string data, ostream& out, ostream& outErr, vector <Media>& m) {
 	int ratingsort;
 	bool sortedprint = false, error = false;
 	if (data.length() > 1 && isdigit(data[data.length() - 1])) {
-
+		//erase the letter and the comma
 		data.erase(0, 2);
 		ratingsort = stoi(data);
 		if (ratingsort > 10 || ratingsort <= 0) {
@@ -146,7 +147,7 @@ void printAllMedia(string data, ostream& out, ostream& outErr, vector <Media>& m
 			error = true;
 		}
 		else { sortedprint = true; }
-	}
+	}//if  they want a sotred list
 	if (sortedprint) {
 		out << setw(63) << setfill('+') << "" << endl;
 		out << "      YOUR MEDIA LIST" << endl << setfill(' ') << endl;
@@ -172,20 +173,21 @@ void printAllMedia(string data, ostream& out, ostream& outErr, vector <Media>& m
 	out << endl << endl;
 	
 }
-
+//print all the moveies or sorted movies
 void printMovieList(string data, ostream& out, ostream& outErr, vector <Media>& m) {
 	int ratingsort;
 	bool sortedprint = false, error = false;
 	if (data.length() > 1 && isdigit(data[data.length() - 1])) {
 		data.erase(0, 2);
 		ratingsort = stoi(data);
+		//check if rating is valid
 		if (ratingsort > 10 || ratingsort <= 0) {
 			outErr << "Unable to process command.The rating of : " << ratingsort << " is invalid" << endl;
 			error = true;
 		}
 		else { sortedprint = true; }
 	}
-
+	//check if they want sorted print
 	if (sortedprint) {
 		out << setw(57) << setfill('+') << "" << endl;
 		out << "      YOUR MOVIE LIST" << endl << setfill(' ') << endl;
@@ -209,12 +211,13 @@ void printMovieList(string data, ostream& out, ostream& outErr, vector <Media>& 
 	out << endl << endl;
 	
 }
-
+//print a book list or stored list
 void printBookList(string data, ostream& out, ostream& outErr, vector <Media>& m) {
 	int ratingsort;
 	bool sortedprint = false, error = false;
 	if (data.length() > 1 && isdigit(data[data.length() - 1])) {
 		data.erase(0, 2);
+		//erase the letter and comma then check the valid thing
 		ratingsort = stoi(data);
 		if (ratingsort > 10 || ratingsort <= 0) {
 			outErr << "Unable to process command.The rating of : " << ratingsort << " is invalid" << endl;
@@ -245,13 +248,14 @@ void printBookList(string data, ostream& out, ostream& outErr, vector <Media>& m
 	out << endl << endl;
 	
 }
-
+//print the songs list or sorted list
 void printSongList(string data, ostream& out, ostream& outErr, vector <Media>& m) {
 	int ratingsort;
 	bool sortedprint = false, error = false;
 	if (data.length() > 1 && isdigit(data[data.length() - 1])) {
 		data.erase(0, 2);
 		ratingsort = stoi(data);
+		//erase the comma and letter then check if valid
 		if (ratingsort > 10 || ratingsort <= 0) {
 			outErr << "Unable to process command.The rating of : " << ratingsort << " is invalid" << endl;
 			error = true;
@@ -304,14 +308,15 @@ void printTotals(ostream& out, vector<Media>& m) {
 	out << setw(4) << left << stotal << setw(8) << left << "Songs" << endl;
 	out << setw(4) << left << mtotal + btotal + stotal << setw(8) << left << "Items" << endl;
 }
-
+//add new media with the correct format
 void addNewMedia(string media, ostream& out, ostream& outErr, vector<Media>& m) {
 	string line,temp;
 	Media tempM;
 	
-	media.erase(0, 2);
+	media.erase(0, 2);//erase the n
 	stringstream linestream(media);
 	try {
+		//iterate thrugh the differnt thigns you need to add while making sure they are correct
 		for (int j = 0; j < 7; j++) {
 			getline(linestream, temp, ',');
 			if (j == 0) {

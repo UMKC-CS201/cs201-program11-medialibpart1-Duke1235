@@ -3,24 +3,44 @@
 
 #include <iostream>
 #include <fstream>
+
+//include media
 #include "Media.h"
 using namespace std;
+/*
+name:alex ghasemi
+project: media lbirary
+class: CS201
+psuedo code
+take file of media dn file of commands
+load the media into class based vectors
+follow the commands to proform the correct output
 
+
+
+
+*/
 
 int main()
 {
     string data;
+    //read the media list
     ifstream inFile("mediaList.txt");
+    //start output files
     ofstream outErrorFile("Errors.txt");
     ofstream outFile("output.txt");
     vector<Media> totalMedia;
+    //check if open
     if (!inFile.is_open()) {
         cout << "Failed to open mediaList.txt" << endl;
-        return 1; // Return an error code
+        return 1;
     }
+    //read the file and load
     readMediaList(inFile, outErrorFile, totalMedia);
     inFile.close();
+    //open the commands
     ifstream ninFile("mediaCommands.txt"); 
+    //read the whole file
     while (getline(ninFile, data)) {
         if (data[0] == 'M') {
             printMovieList(data, outFile, outErrorFile, totalMedia);

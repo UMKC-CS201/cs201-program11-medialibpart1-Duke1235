@@ -9,7 +9,7 @@
 using namespace std;
 
 
-
+//initalize the class and all aspects of the class
 class Media {
 protected:
 	char type;
